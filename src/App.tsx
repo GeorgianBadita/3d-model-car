@@ -23,7 +23,6 @@ function App() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.addEventListener("change", renderer);
 
     const hlight = new THREE.AmbientLight(0x404040, 8);
     scene.add(hlight);
@@ -56,8 +55,9 @@ function App() {
     });
 
     const animate = () => {
-      renderer.render(scene, camera);
       requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
     };
   }, []);
 }
