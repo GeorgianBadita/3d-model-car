@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, ReactElement } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-function App() {
+function App(): ReactElement<any, any> {
   useEffect(() => {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0xdddddd);
@@ -60,6 +60,8 @@ function App() {
       renderer.render(scene, camera);
     };
   }, []);
+
+  return <></>;
 }
 
 export default App;
